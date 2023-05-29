@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for [@car, @rental] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit 'Rent car' %>
+  <% end %>
+</div>

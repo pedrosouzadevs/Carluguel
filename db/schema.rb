@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_184134) do
     t.string "brand"
     t.string "model"
     t.text "description"
+    t.integer "year"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

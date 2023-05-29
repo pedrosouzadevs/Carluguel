@@ -4,6 +4,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string :brand
       t.string :model
       t.text :description
+      t.integer :year
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

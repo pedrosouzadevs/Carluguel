@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add a review</h1>
+  <%= simple_form_for [@car, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

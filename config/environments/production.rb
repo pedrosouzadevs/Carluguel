@@ -52,6 +52,8 @@ Rails.application.configure do
   # information to avoid inadvertent exposure of personally identifiable information (PII).
   config.log_level = :info
 
+  config.action_mailer.default_url_options = { host: 'heroku', port: 3000 }
+
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 

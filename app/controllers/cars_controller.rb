@@ -47,6 +47,22 @@ class CarsController < ApplicationController
     redirect_to cars_path, status: :see_other
   end
 
+  def user_cars
+    @user = current_user
+    @cars = policy_scope(Car)
+  end
+
+  def user_rentals
+    @user = current_user
+    @rentals = Rental.all
+    @rentals.select do |rental|
+      if rental.user_id == @user.id
+        rental.start_date
+        rental.end_date
+        rental.price
+      end
+    end
+  end
   private
 
   def car_params

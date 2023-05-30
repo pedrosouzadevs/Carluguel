@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "user/:user_id/my_cars", to: "users#car_index", as: :car_index_user
-  get "user/:user_id/my_rentals", to: "users#rental_index", as: :rental_index_user
+  get "my_cars", to: "cars#user_cars", as: :my_car_index_cars
+  get "my_rentals", to: "cars#user_rentals", as: :my_rental_index_cars
   root to: "cars#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

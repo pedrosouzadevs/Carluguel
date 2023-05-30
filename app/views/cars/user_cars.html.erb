@@ -1,8 +1,0 @@
-<%@cars.select do |car|%>
-     <% if car.user_id == @user.id%>
-       <%= car.year%>
-       <%=car.model%>
-       <%=car.brand%>
-      <%= car.description%>
-      <% end %>
-<% end %>

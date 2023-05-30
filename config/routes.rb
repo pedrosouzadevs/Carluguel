@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "my_cars", to: "cars#user_cars", as: :my_car_index_cars
-  get "my_rentals", to: "cars#user_rentals", as: :my_rental_index_cars
+  resources :users, only: %i[show]
   root to: "cars#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

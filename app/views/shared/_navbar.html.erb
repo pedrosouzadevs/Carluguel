@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", cars_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Add car", new_car_path, class: "nav-link"%>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,6 +30,9 @@
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Add car", new_car_path, class: "nav-link"%>
           </li>
         <% end %>
       </ul>

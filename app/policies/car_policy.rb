@@ -24,8 +24,4 @@ class CarPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-
-  def user_cars?
-    true
-  end
 end

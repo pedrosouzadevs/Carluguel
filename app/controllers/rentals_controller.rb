@@ -9,7 +9,8 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.car = @car
-    @rental.user = current_user
+    @rental.user = current_user.id
+    raise
     authorize @rental
     if @rental.save
       redirect_to car_path(@car)
@@ -21,7 +22,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date, :user_id, :car_id, :price)
+    params.require(:rental).permit(:start_date, :end_date)
   end
 
   def set_car

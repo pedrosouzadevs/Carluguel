@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Edit your car</h1>
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :model %>
+    <%= f.input :brand %>
+    <%= f.input :description %>
+    <%= f.input :year %>
+    <%= f.input :image_url %>
+
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

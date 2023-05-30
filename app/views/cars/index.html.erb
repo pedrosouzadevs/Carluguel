@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center align-items-center gap-5">
+  <div >
+    <h1 class="text-center text-decoration-underline">Lists</h1>
+    <ul class="list-group list-unstyled gap-1 ">
+      <% @cars.each do |car| %>
+        <li><a href="<%=car_path(car) %>" class="list-group-item text-decoration-none" ><%=car.year %> - <%=car.brand %> - <%=car.model%></a></li>
+      <% end %>
+      </ul>
+  </div>

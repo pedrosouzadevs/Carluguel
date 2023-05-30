@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :rented?]
 
   def index
     @cars = policy_scope(Car)
@@ -47,7 +47,12 @@ class CarsController < ApplicationController
     redirect_to cars_path, status: :see_other
   end
 
-private
+  def rented?
+    @rental = Rental.find(params[:car_id])
+    @car.rented = false if Date.today == @rental.end_date
+  end
+
+  private
 
   def car_params
     params.require(:car).permit(:brand, :description, :model, :year, :image_url)

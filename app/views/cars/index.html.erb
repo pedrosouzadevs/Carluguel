@@ -2,7 +2,7 @@
   <div>
     <ul class="list-group list-unstyled gap-1 ">
       <% @cars.each do |car| %>
-        <li><a href="<%=car_path(car) %>" class="list-group-item text-decoration-none" ><%=car.year %> - <%=car.brand %> - <%=car.model%></a></li>
+        <li><a href="<%=car_path(car) %>" class="list-group-item text-decoration-none" ><%=car.year %> - <%=car.brand %> - <%=car.model%> - $<%= car.price %></a></li>
       <% end %>
       </ul>
   </div>

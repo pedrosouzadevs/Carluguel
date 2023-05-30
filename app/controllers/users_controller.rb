@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
-    # raise
+    @cars = Car.where(user_id: current_user)
+    authorize @user
   end
 
 end

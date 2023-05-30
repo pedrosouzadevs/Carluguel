@@ -1,17 +1,18 @@
-<%@user.rentals.each do |rental|%>
-  <%=rental.car.image_url%>
-  <%=rental.car.year%>
-  <%=rental.car.model%>
-  <%=rental.car.brand%>
-  <%= rental.car.description%>
-<% end %>
-
-<h1>oioioioioioioioioipe <%= current_user.id %></h1>
-
-
-<%@user.rentals.each do |rental|%>
-  <%=rental.car.image_url%>
-  <%=rental.start_date%>
-  <%=rental.end_date%>
-  <%=rental.price%>
-<% end%>
+<div class="container">
+  <%@cars.each do |car|%>
+    <%if @user.id == current_user.id%>
+      <%= image_tag car.image_url, width: 400, height: 300%>
+      <%=car.year%>
+      <%=car.model%>
+      <%=car.brand%>
+      <%=car.description%>
+      <% end %>
+  <% end %>
+</div>
+<div class="container">
+  <%@user.rentals.each do |rental|%>
+    <%= image_tag rental.car.image_url, width: 400, height: 300%>
+    <%=rental.start_date%>
+    <%=rental.end_date%>
+  <% end%>
+</div>

@@ -7,6 +7,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
+    @car.user = current_user
     if @car.save
       redirect_to car_path(@car)
     else
@@ -19,7 +20,7 @@ class CarsController < ApplicationController
   end
 
   def show
-    # @review = Review.new(params[:car_id]) checar???
+    @review = Review.new(params[:car_id])
   end
 
   def edit
@@ -35,7 +36,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car.destroy
-    redirect_to car_path(@car), status: :see_other
+    redirect_to cars_path, status: :see_other
   end
 
   private

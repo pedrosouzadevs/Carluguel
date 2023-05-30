@@ -3,7 +3,6 @@ class Rental < ApplicationRecord
   belongs_to :car
 
   validates :start_date, :end_date, :price, presence: true
-  validates :valid_date
 
   private
 

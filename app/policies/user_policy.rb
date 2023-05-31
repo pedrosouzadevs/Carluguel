@@ -9,4 +9,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def show_rentals?
+    true
+  end
 end

@@ -21,6 +21,12 @@ class RentalsController < ApplicationController
     end
   end
 
+  def show_rentals
+    @user = current_user
+    @rental = Rental.where(user_id: @user)
+    authorize @rental
+  end
+
   private
 
   def rental_params

@@ -12,6 +12,8 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     authorize @rental
     if @rental.save
+      @car.rented = true
+      @car.save
       redirect_to car_path(@car)
     else
       render :new, status: :unprocessable_entity

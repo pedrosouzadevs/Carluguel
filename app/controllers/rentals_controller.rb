@@ -10,7 +10,9 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.car = @car
     @rental.user = current_user
-    @rental.total_price = total_price
+    diff = (@rental.end_date - @rental.start_date).to_i
+    total_price_t = diff * @rental.car.price
+    @rental.total_price = total_price_t
     authorize @rental
     if @rental.save
       @car.rented = true
@@ -35,10 +37,5 @@ class RentalsController < ApplicationController
 
   def set_car
     @car = Car.find(params[:car_id])
-  end
-
-  def total_price
-    diff = (@rental.end_date - @rental.start_date).to_i
-    diff * @rental.car.price
   end
 end

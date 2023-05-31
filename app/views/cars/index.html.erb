@@ -1,11 +1,16 @@
-<div class="d-flex justify-content-center align-items-center gap-5">
-  <div>
-    <ul class="list-group list-unstyled gap-1 ">
-      <% @cars.each do |car| %>
-        <% if car.rented == false %>
-          <li><a href="<%=car_path(car) %>" class="list-group-item text-decoration-none" ><%=car.year %> - <%=car.brand %> - <%=car.model%> - $<%= car.price %></a></li>
-        <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @cars.each do |car| %>
+      <% if car.rented == false %>
+        <div class="card justify-content-center m-1" style="width: 20rem;">
+          <%= image_tag car.image_url, class: "card-img-top", width: 286, height: 180 %>
+          <div class="card-body">
+              <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
+              <p class="card-text pb-5"><%= car.description %></p>
+              <a href="<%=car_path(car) %>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x mb-3">See details</a>
+          </div>
+        </div>
       <% end %>
-      </ul>
+    <% end %>
   </div>
 </div>

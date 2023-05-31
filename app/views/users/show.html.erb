@@ -1,7 +1,7 @@
 <div class="container">
   <%@cars.each do |car|%>
     <%if @user.id == current_user.id%>
-      <%= image_tag car.image_url, width: 400, height: 300%>
+      <%= image_tag car.image_url, width: 200, height: 160%>
       <%=car.year%>
       <%=car.model%>
       <%=car.brand%>

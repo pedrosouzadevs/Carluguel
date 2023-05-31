@@ -3,9 +3,9 @@
     <%if @user.id == current_user.id%>
       <%= image_tag car.image_url, width: 200, height: 160%>
       <%=car.year%>
-      <%=car.model%>
       <%=car.brand%>
-      <%=car.description%>
+      <%=car.model%>
+      <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
       <% end %>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 class CarPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.rented_cars_not_confirmed
     end
   end
 

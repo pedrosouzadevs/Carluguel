@@ -1,10 +1,12 @@
 <div class="container">
   <h1>My Rentals</h1>
     <%@user.rentals.each do |rental|%>
-      <%= image_tag rental.car.image_url, width: 400, height: 300%>
-      <%=rental.start_date%>
-      <%=rental.end_date%>
-      <p>Total price: $<%=rental.total_price%></p>
-      <%= link_to "Review this car", new_car_review_path(rental.car) ,class:"btn btn-primary my-2"%>
+      <% if rental.confirmation == true %>
+        <%= image_tag rental.car.image_url, width: 400, height: 300%>
+        <%=rental.start_date%>
+        <%=rental.end_date%>
+        <p>Total price: $<%=rental.total_price%></p>
+        <%= link_to "Review this car", new_car_review_path(rental.car) ,class:"btn btn-primary my-2"%>
+      <% end %>
     <% end%>
 </div>

@@ -11,4 +11,7 @@ class Car < ApplicationRecord
 
   validates :brand, :description, :model, :year, :price, :image_url, presence: true
   validates :year, length: { is: 4 }
+
+  scope :rented_cars_not_confirmed, -> {(where(rented: true).joins(:rentals).where(rentals: {confirmation: false}) + (where(rented: false))).uniq}
+
 end

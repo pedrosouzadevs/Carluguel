@@ -12,7 +12,7 @@ class CarsController < ApplicationController
     current_user.owner = true
     authorize @car
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to user_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end

@@ -17,9 +17,7 @@ class RentalsController < ApplicationController
     if @rental.save
       @car.rented = true
       @car.save
-
-      redirect_to my_rentals_path(current_user)
-
+      redirect_to  car_rental_path(@car, @rental)
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,15 +25,19 @@ class RentalsController < ApplicationController
 
   def show
     @rental = Rental.find(params[:id])
+    authorize @rental
   end
 
   def update
+    @rental = Rental.find(params[:id])
+    authorize @rental
     if @rental.update(confirmation: params[:confirmation])
-      redirect_to my_rentals(current_user)
+      redirect_to my_rentals_path(current_user)
     else
       render :show, status: :unprocessable_entity
     end
   end
+
   def show_rentals
     @user = current_user
     @rental = Rental.where(user_id: @user)

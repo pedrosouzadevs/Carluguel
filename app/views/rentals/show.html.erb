@@ -1,1 +1,12 @@
 <h1>Show Rentals</h1>
+<%= @rental.start_date %>
+<%= @rental.end_date %>
+<h2><%= @rental.total_price %></h2>
+
+<%= button_to(
+        'Confirm Rent',
+        car_rental_path(@car, @rental),
+        class: 'btn btn-danger text-white',
+        method: :patch,
+        params: { confirmation: true }
+      )%>

@@ -3,16 +3,29 @@
   <h2>Available Cars</h2>
   </div>
   <div class="row justify-content-center">
-      <%@cars.each do |car|%>
-        <%if @user.id == current_user.id%>
-          <% if car.rented == false %>
-            <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
-              <%= image_tag car.image_url, width: 200, height: 160%>
-              <div class="card-body">
-                <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
-                <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
-              </div>
+    <%@cars.each do |car|%>
+      <% if car.rented == false %>
+        <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+            <%= image_tag car.image_url, width: 200, height: 160%>
+            <div class="card-body">
+              <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
+              <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
             </div>
+        </div>
+      <% end %>
+    <% end %>
+      <%@cars.each do |car|%>
+        <% if car.rented == true %>
+          <% car.rentals.each do |rental| %>
+            <% if rental.confirmation == false %>
+              <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+                <%= image_tag car.image_url, width: 200, height: 160%>
+                <div class="card-body">
+                  <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
+                  <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -23,14 +36,16 @@
   <div class="row justify-content-center">
     <%@cars.each do |car|%>
       <%if @user.id == current_user.id%>
-        <% if car.rented == true %>
-          <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
-            <%= image_tag car.image_url, width: 200, height: 160%>
-            <div class="card-body">
-              <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
-              <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
+        <% car.rentals.each do |rental| %>
+          <% if rental.confirmation == true %>
+            <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+              <%= image_tag car.image_url, width: 200, height: 160%>
+              <div class="card-body">
+                <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
+                <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>

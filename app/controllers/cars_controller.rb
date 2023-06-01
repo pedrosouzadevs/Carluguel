@@ -4,7 +4,6 @@ class CarsController < ApplicationController
 
   def index
     @cars = policy_scope(Car)
-    @cars = Car.all
     if params[:query].present?
       sql_subquery = "brand ILIKE :query OR model ILIKE :query"
       @cars = @cars.where(sql_subquery, query: "%#{params[:query]}%")

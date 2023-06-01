@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>My Rentals</h1>
   <%@user.rentals.each do |rental|%>
     <%= image_tag rental.car.image_url, width: 400, height: 300%>
     <%=rental.start_date%>

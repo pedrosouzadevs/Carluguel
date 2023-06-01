@@ -31,12 +31,7 @@ class RentalsController < ApplicationController
   def update
     @rental = Rental.find(params[:id])
     authorize @rental
-    puts "******************************"
-    puts @rental.update(confirmation: params[:confirmation])
-    puts "******************************"
-
-    binding.pry
-    if @rental.update(confirmation: params[:confirmation])
+    if @rental.update!(confirmation: params[:confirmation])
       redirect_to my_rentals_path(current_user)
     else
       render :show, status: :unprocessable_entity

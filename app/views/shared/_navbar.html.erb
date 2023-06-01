@@ -8,6 +8,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="row justify-content-center">
+      <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control"%>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>

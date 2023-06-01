@@ -1,4 +1,8 @@
 class Car < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search, against: %i[brand model], using: {
+    tsearch: { prefix: true }
+  }
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :rentals, dependent: :destroy

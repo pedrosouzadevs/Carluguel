@@ -79,3 +79,5 @@ end
 gem "devise"
 
 gem "pundit"
+
+gem "pg_search"

@@ -1,9 +1,17 @@
 <div class="container">
-  <%= simple_form_for [@car, @rental] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.submit 'Rent car' %>
-  <% end %>
+  <div>
+    <%= image_tag @car.image_url, width:400, height: 300%>
+    <%= @car.year %>
+    <%= @car.brand %>
+    <%= @car.model %>
+  </div>
+  <div>
+    <%= simple_form_for [@car, @rental] do |f| %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true %>
+      <%= f.submit 'Rent car' %>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "See other cars", cars_path ,class:"btn btn-primary my-2"%>

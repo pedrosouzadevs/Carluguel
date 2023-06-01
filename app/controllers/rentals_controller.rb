@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_car, only: %i[new create]
+  before_action :set_car, only: %i[new create show update]
 
   def new
     @rental = Rental.new
@@ -17,12 +17,25 @@ class RentalsController < ApplicationController
     if @rental.save
       @car.rented = true
       @car.save
+
       redirect_to my_rentals_path(current_user)
+
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def show
+    @rental = Rental.find(params[:id])
+  end
+
+  def update
+    if @rental.update(confirmation: params[:confirmation])
+      redirect_to my_rentals(current_user)
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
   def show_rentals
     @user = current_user
     @rental = Rental.where(user_id: @user)

@@ -7,6 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def create
+    @car.rentals.destroy_all if @car.rentals.any?
     @rental = Rental.new(rental_params)
     @rental.car = @car
     @rental.user = current_user

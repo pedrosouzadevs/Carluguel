@@ -43,3 +43,27 @@ border-top-right-radius: 6px;
     color: #fff;
   }
 }
+
+.link-show-others {
+      position: absolute;
+      bottom: 0px;
+      left: 24px;
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.link-show{
+  position: relative;
+}
+
+.link-show-rent {
+  position: absolute;
+  bottom: 0px;
+  left: 567px;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,11 +1,11 @@
 <div class="container">
   <div>
-  <h2>Available Cars</h2>
+  <h2 class="text-center my-3">Available Cars</h2>
   </div>
   <div class="row justify-content-center">
     <%@cars.each do |car|%>
       <% if car.rented == false %>
-        <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+        <div class="card border-0 rounded rounded-4 justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
             <%= image_tag car.image_url, width: 200, height: 160%>
             <div class="card-body">
               <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
@@ -18,7 +18,7 @@
         <% if car.rented == true %>
           <% car.rentals.each do |rental| %>
             <% if rental.confirmation == false %>
-              <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+              <div class="card border-0 rounded rounded-4 justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
                 <%= image_tag car.image_url, width: 200, height: 160%>
                 <div class="card-body">
                   <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
@@ -31,14 +31,14 @@
       <% end %>
   </div>
   <div>
-  <h2>My Rented Cars</h2>
+  <h2 class="text-center my-3 mt-5">My Rented Cars</h2>
   </div>
   <div class="row justify-content-center">
     <%@cars.each do |car|%>
       <%if @user.id == current_user.id%>
         <% car.rentals.each do |rental| %>
           <% if rental.confirmation == true %>
-            <div class="card justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
+            <div class="card border-0 rounded rounded-4 justify-content-center d-flex flex-row align-items-center m-1" style="width: 24rem; height: 13rem">
               <%= image_tag car.image_url, width: 200, height: 160%>
               <div class="card-body">
                 <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>

@@ -1,22 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to cars_path, class: "navbar-brand" do %>
-      <%= image_tag "https://i.imgur.com/w6FvH71.png" %>
+      <%= image_tag "https://i.imgur.com/3sdVTOe.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="row justify-content-center">
+    <div class="navbar-search row justify-content-center">
       <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query, params[:query], class: "form-control"%>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary bg-black border-0 border-radius-rounded" %>
       <% end %>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse text-dark" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto text-dark">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,13 +31,13 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-dark" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-dark" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Add car", new_car_path, class: "nav-link" %>
+            <%= link_to "Add car", new_car_path, class: "nav-link text-dark" %>
           </li>
         <% end %>
       </ul>

@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <% @cars.each do |car| %>
-      <div class="card justify-content-center m-1" style="width: 20rem;">
-        <%= image_tag car.image_url, class: "card-img-top", width: 286, height: 180 %>
-        <div class="card-body">
-            <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
-            <p class="card-text pb-5"><%= car.description %></p>
-            <p class="card-text">$<%=car.price.to_i%></p>
-            <a href="<%=car_path(car) %>" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x mb-3">See details</a>
+<div class="bg-black">
+  <div class="container">
+    <div class="row justify-content-center">
+      <% @cars.each do |car| %>
+        <div class="card mx-3 my-3 p-0 border-0 rounded rounded-4" style="width: 19rem;">
+          <%= image_tag car.image_url, class: "card-img-top rounded-bottom rounded-4", width: 286, height: 180 %>
+          <div class="card-body">
+              <div class="card-title text-center"><h5><strong><%= car.brand %> <%= car.model %> - <%= car.year %></strong></h5></div>
+              <div class="card-text text-center my-3"><strong>$<%= car.price.to_i %></strong>/day</div>
+              <p class="card-text text-center my-4 pb-5"><%= car.description %></p>
+              <a href="<%=car_path(car) %>" class="section2_btn btn55 position-absolute bottom-0 start-50 translate-middle-x mb-3">See details</a>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

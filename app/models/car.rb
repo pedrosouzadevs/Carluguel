@@ -14,8 +14,7 @@ class Car < ApplicationRecord
 
   scope :rented_cars_not_confirmed, -> {
     left_joins(:rentals)
-    .where(rentals: { confirmation: [false, nil] })
-    .distinct
+      .where(rentals: { confirmation: [false, nil] })
+      .distinct
   }
-
 end

@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-  <h2 class="text-center my-3">Available Cars</h2>
+  <h2 class="text-center my-3 text-white">Available Cars</h2>
   </div>
   <div class="row justify-content-center">
     <%@cars.each do |car|%>
@@ -9,7 +9,7 @@
             <%= image_tag car.image_url, width: 200, height: 160%>
             <div class="card-body">
               <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
-              <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
+              <%= link_to "See details", car_path(car), class: "btn btn-primary bg-black border-0 my-3 rounded-3" %>
             </div>
         </div>
       <% end %>
@@ -22,7 +22,7 @@
                 <%= image_tag car.image_url, width: 200, height: 160%>
                 <div class="card-body">
                   <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
-                  <%= link_to "See details", car_path(car), class: "btn btn-primary" %>
+                  <%= link_to "See details", car_path(car), class: "btn btn-primary bg-black border-0 my-3 rounded-3" %>
                 </div>
               </div>
             <% end %>

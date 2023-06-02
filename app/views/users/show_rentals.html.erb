@@ -3,7 +3,7 @@
   <div class="row">
     <%@user.rentals.each do |rental|%>
       <% if rental.confirmation == true %>
-        <div class="col-4">
+        <div class="col-4 my-3">
           <div class="card-rentals">
               <div class="mb-3">
                 <img src=<%=rental.car.image_url%> class="card-rentals-image">

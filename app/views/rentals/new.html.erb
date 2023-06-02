@@ -1,16 +1,20 @@
-<div class="container text-white">
-    <div class="container card justify-content-center text-center my-5 w-50 p-5 rounded rounded-4">
-      <%= image_tag @car.image_url, width:400, height: 300%>
-      <%= @car.year %>
-      <%= @car.brand %>
-      <%= @car.model %>
+<div class="container my-4">
+  <div class="card mb-3" style="max-width: 100%">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src=<%=@car.image_url%> class="rounded-start img-fluid" alt="...">
+      </div>
+      <div class="col-md-8 link-show">
+        <div class="card-body">
+          <div>
+            <%= simple_form_for [@car, @rental] do |f| %>
+              <%= f.input :start_date, as: :date, input_html: { class: 'form-control', value: Date.today.to_s }, html5: true %>
+              <%= f.input :end_date, as: :date, input_html: { class: 'form-control', value: (Date.today + 1).to_s }, html5: true %>
+              <%= f.submit 'Rent car' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <div>
-    <%= simple_form_for [@car, @rental] do |f| %>
-      <%= f.input :start_date, as: :date, input_html: { class: 'form-control', value: Date.today.to_s }, html5: true %>
-      <%= f.input :end_date, as: :date, input_html: { class: 'form-control', value: (Date.today + 1).to_s }, html5: true %>
-      <%= f.submit 'Rent car' %>
-    <% end %>
   </div>
-<%= link_to "See other cars", cars_path ,class:"btn btn-primary bg-white text-black border-0 my-3 rounded-3"%>
 </div>

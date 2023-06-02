@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-  <h2 class="text-center my-3">Available Cars</h2>
+  <h2 class="text-center my-3 text-white">Available Cars</h2>
   </div>
   <div class="row justify-content-center">
     <%@cars.each do |car|%>
@@ -24,6 +24,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= car.brand %> <%= car.model %> - <%= car.year %></h5>
                   <%= link_to "See details", car_path(car), class: "section2_btn btn55 color-link text-center text-decoration-none bottom-0 start-50 translate-middle-x my-3 mb-3 mr-2 w-75" %>
+
                 </div>
               </div>
             <% end %>
@@ -32,7 +33,7 @@
       <% end %>
   </div>
   <div>
-  <h2 class="text-center my-3 mt-5">My Rented Cars</h2>
+  <h2 class="text-center text-white my-3 mt-5">My Rented Cars</h2>
   </div>
   <div class="row justify-content-center">
     <%@cars.each do |car|%>

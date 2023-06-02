@@ -1,12 +1,25 @@
 <div class="container">
   <h1>My Rentals</h1>
+  <div class="row">
     <%@user.rentals.each do |rental|%>
       <% if rental.confirmation == true %>
-        <%= image_tag rental.car.image_url, width: 400, height: 300%>
-        <%=rental.start_date%>
-        <%=rental.end_date%>
-        <p>Total price: $<%=rental.total_price%></p>
-        <%= link_to "Review this car", new_car_review_path(rental.car) ,class:"btn btn-primary my-2"%>
+        <div class="col-4">
+          <div class="card-rentals">
+              <div class="mb-3">
+                <img src=<%=rental.car.image_url%> class="card-rentals-image">
+              </div>
+              <div>
+                <p class="date px-3 my-1">Initial date <%=rental.start_date%></p>
+                <p class="date px-3">Final date <%=rental.end_date%></p>
+                <p class="mx-3 mt-3 border-top pt-3">Total price: $<%=rental.total_price%></p>
+              </div>
+              <div class="d-flex justify-content-between install mt-3">
+							  <button class="section2_btn btn55 px-3 m-3" type="button"><%=link_to "View", car_path(rental.car), class:"text-decoration-none color-link"%></button>
+							  <button class="section2_btn btn55 px-3 m-3" type="button"><%= link_to "Review", new_car_review_path(rental.car), class:"text-decoration-none color-link"%></button>
+              </div>
+          </div>
+        </div>
       <% end %>
-    <% end%>
+    <% end %>
+  </div>
 </div>

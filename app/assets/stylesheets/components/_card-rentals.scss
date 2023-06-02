@@ -1,0 +1,45 @@
+.card-rentals {
+  background-color: white;
+  border-radius: 6px;
+}
+
+.card-rentals-image {
+width: 100%;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+}
+
+.section2_btn {
+  border-radius: 35px;
+  padding: 10px 12px;
+  width: 100%;
+  height: 52px;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 42px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn55 {
+  background: transparent;
+  border: 2px solid #111111;
+  color: #111111;
+}
+
+.btn55:hover {
+  background: #111111;
+  a{
+    color: #fff;
+  }
+}
+
+.color-link {
+  color: #111111;
+  &:hover {
+    color: #fff;
+  }
+}
